@@ -38,24 +38,6 @@ export TARGET=i386-elf
 export PATH="$PREFIX/bin:$PATH"
 ```
 
-
-```sh
-mkdir /tmp/src
-cd /tmp/src
-tar xzf gcc-4.6.2.tar.gz
-cd gcc-4.6.2
-./contrib/download_prerequisites
-cd ..
-mkdir objdir
-cd objdir
-$PWD/../gcc-4.6.2/configure --prefix=$HOME/GCC-4.6.2 
-make
-make install
-```
-
-ORIG DOWN BELOW
-
-
 binutils
 --------
 
@@ -75,12 +57,16 @@ make all install 2>&1 | tee make.log
 gcc
 ---
 ```sh
+mkdir /tmp/src
 cd /tmp/src
-curl -O https://ftp.gnu.org/gnu/gcc/gcc-4.9.1/gcc-4.9.1.tar.bz2
-tar xf gcc-4.9.1.tar.bz2
-mkdir gcc-build
-cd gcc-build
-../gcc-4.9.1/configure --target=$TARGET --prefix="$PREFIX" --disable-nls --disable-libssp --enable-languages=c --without-headers
+curl -O https://ftp.gnu.org/gnu/gcc/gcc-4.9.4/gcc-4.9.4.tar.bz2
+tar xzf gcc-4.9.4.tar.gz
+cd gcc-4.9.4
+./contrib/download_prerequisites
+cd ..
+mkdir objdir
+cd objdir
+$PWD/../gcc-4.9.4/configure --target=$TARGET --prefix="$PREFIX" --disable-nls --disable-libssp --enable-languages=c --without-headers
 make all-gcc 
 make all-target-libgcc 
 make install-gcc 
