@@ -38,6 +38,24 @@ export TARGET=i386-elf
 export PATH="$PREFIX/bin:$PATH"
 ```
 
+
+```sh
+mkdir /tmp/src
+cd /tmp/src
+tar xzf gcc-4.6.2.tar.gz
+cd gcc-4.6.2
+./contrib/download_prerequisites
+cd ..
+mkdir objdir
+cd objdir
+$PWD/../gcc-4.6.2/configure --prefix=$HOME/GCC-4.6.2 
+make
+make install
+```
+
+ORIG DOWN BELOW
+
+
 binutils
 --------
 
